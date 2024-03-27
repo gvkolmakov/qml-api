@@ -22,7 +22,7 @@ $  python3 client_app.py
 
 For the best result;) place ngq.py file in the same directory where your code (f.e. client_app.py) is.
 
-**2. Creating a labeled set with a cmplimentary online tool.**
+**2. Creating a labeled set with a complimentary online tool.**
    
 If you need to label your files to create the training set for your application, use our complimentary free online labeling tool at: 
 
