@@ -5,13 +5,13 @@
 Thank you for your interest in machine learning (ML) API.
 
 Your image recongition ML API code is in client_app.py file.  It 
-
-(1) uploads your training set to the server, 
+<ol>
+<li> (1) uploads your training set to the server, </li>
 
 (2) trains an ML model on the server, and 
 
 (3) returns labels for your files that you send to the server.
-
+</ol>
 How to run - quick start: 
 
 (a) Download the files from github to your local computer
