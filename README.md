@@ -20,7 +20,9 @@ How to run - quick start:
 
 (c) To run as a stand-alone application, from the directory where you downloaded the files, run in the command line in a terminal:
 
+```python
 python3 client_app.py
+```
 
 (d) Alternatively, use the calls from client_app.py in your python application code.
 
