@@ -28,6 +28,7 @@ python3 client_app.py
 </li>
 
 <li> Alternatively, use the calls from client_app.py in your python application code. </li>
+</ol>
 
 For the best result;) keep ngq.py file in the same directory where your code (f.e. client_app.py) is.
 
