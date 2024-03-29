@@ -4,27 +4,30 @@
    
 Thank you for your interest in machine learning (ML) API.
 
-Your image recongition ML API code is in client_app.py file.  It 
+Your image recongition ML API code is in client_app.py file.  With just a few lines of code, the app: 
 <ol>
-<li> (1) uploads your training set to the server, </li>
+<li> uploads your training set to the server, </li>
 
-(2) trains an ML model on the server, and 
+<li> trains an ML model on the server, and </li>
 
-(3) returns labels for your files that you send to the server.
+<li> returns labels for your files that you send to the server.</li>
 </ol>
+
 How to run - quick start: 
 
-(a) Download the files from github to your local computer
+<ol>
+<li>  Download the files from github to your local computer </li>
 
-(b) Go to the directory my_datasets/MNIST_1024_imgs and unzip the sample training data file MNIST_1024_images.zip 
+<li> Go to the directory my_datasets/MNIST_1024_imgs and unzip the sample training data file MNIST_1024_images.zip </li>
 
-(c) To run as a stand-alone application, from the directory where you downloaded the files, run in the command line in a terminal:
+<li> To run as a stand-alone application, from the directory where you downloaded the files, run in the command line in a terminal:
 
 ```python
 python3 client_app.py
 ```
+</li>
 
-(d) Alternatively, use the calls from client_app.py in your python application code.
+<li> Alternatively, use the calls from client_app.py in your python application code. </li>
 
 For the best result;) keep ngq.py file in the same directory where your code (f.e. client_app.py) is.
 
