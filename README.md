@@ -12,15 +12,19 @@ Your image recongition ML API code is in client_app.py file.  It
 
 (3) returns labels for your files that you send to the server.
 
-How to run: 
+How to run - quick start: 
 
-(a) Use the calls from client_app.py in your python application code.
+(a) Download the files from github to your local computer
 
-(b) To run as a stand-alone application, try in the command line in a terminal:
+(b) Go to the directory my_datasets/MNIST_1024_imgs and unzip the sample training data file MNIST_1024_images.zip 
 
-$  python3 client_app.py
+(c) To run as a stand-alone application, from the directory where you downloaded the files, run in the command line in a terminal:
 
-For the best result;) place ngq.py file in the same directory where your code (f.e. client_app.py) is.
+python3 client_app.py
+
+(d) Alternatively, use the calls from client_app.py in your python application code.
+
+For the best result;) keep ngq.py file in the same directory where your code (f.e. client_app.py) is.
 
 **2. Creating a labeled set with a complimentary online tool.**
    
