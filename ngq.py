@@ -2,7 +2,7 @@ import json, requests, glob
 
 # make _upload_data_files ( ...) an interface for _upload_data_files_chunk()
 #
-def _upload_data_files(endpoint = None, dataset_dir = None, api_key = None, data_id = None):
+def _upload_data_files(endpoint = None, dataset_dir = None, user_id = None, data_id = None):
     """make chunks and sent via _upload_data_files_chunks"""
     
     chunk_size = 100
@@ -13,14 +13,14 @@ def _upload_data_files(endpoint = None, dataset_dir = None, api_key = None, data
     for chunk in chunks:
         _upload_data_files_chunk(
                     endpoint = endpoint,
-                    api_key = api_key,
+                    user_id = user_id,
                     data_id = data_id,
                     chunk = chunk)
     return 'OK'
     
 def _upload_data_files_chunk(endpoint = None,
                     #dataset_dir = None,
-                    api_key = None,
+                    user_id = None,
                     data_id = None,
                     chunk = None):
     """Upload data files' chunk to server.
@@ -51,10 +51,13 @@ def _upload_data_files_chunk(endpoint = None,
         files = (*files, (file_label, f1)) #add file to tuple
         
     #adding query
-    query_string = '?' + 'api_key=' + str(api_key)
+    query_string = '?' + 'user_id=' + str(user_id)
     if data_id != None :
             query_string += '&data_id=' + str(data_id)
     api_url = url + query_string
+    
+    #print("ngq::_upload_data_files_chunk user_id =", user_id)
+    #print("               query =", query_string)
     
     #sending files to server
     print("sending files:", files)
@@ -75,7 +78,7 @@ def _upload_data_files_chunk(endpoint = None,
     return json.loads(response.content)
 
 
-def _upload_data_files_old(endpoint = None, dataset_dir = None, api_key = None, data_id = None):
+def _upload_data_files_old(endpoint = None, dataset_dir = None, user_id = None, data_id = None):
     """
     Old version, send all files at once.
     Cannot process more than 300 files because of the limit in open files' number.
@@ -102,7 +105,7 @@ def _upload_data_files_old(endpoint = None, dataset_dir = None, api_key = None, 
         files = (*files, (file_label, f1)) #add file to tuple
         
     #adding query
-    query_string = '?' + 'api_key=' + str(api_key)
+    query_string = '?' + 'user_id=' + str(user_id)
     if data_id != None :
             query_string += '&data_id=' + str(data_id)
     api_url = url + query_string
@@ -125,17 +128,17 @@ def _upload_data_files_old(endpoint = None, dataset_dir = None, api_key = None, 
 
     return json.loads(response.content)
 
-def  _train_model_on_data(endpoint, api_key, data_id, model_name, num_classes):
+def  _train_model_on_data(endpoint, user_id, data_id, model_name, num_classes):
     """Train model on server on specific dataset."""
     
     url = endpoint
     #query string
     query_string = '?'
     #api key - mandatory
-    if api_key != None:
-        query_string += 'api_key=' + str(api_key)
+    if user_id != None:
+        query_string += 'user_id=' + str(user_id)
     else:
-        return {'error': 'api_key missing', 'comment': 'Provide api_key to run the app correctly.'}
+        return {'error': 'user_id missing', 'comment': 'Provide user_id to run the app correctly.'}
     #data id - mandatory
     if data_id != None:
         query_string += '&data_id=' + str(data_id)
@@ -164,7 +167,7 @@ def  _train_model_on_data(endpoint, api_key, data_id, model_name, num_classes):
     return json.loads(response.content)
 
 
-def _get_labels(endpoint,api_key,dataset_dir,model_name):
+def _get_labels(endpoint,user_id,dataset_dir,model_name):
     """ Get files labeled"""
     
     # Step 1. Upload files to the server to get labeled
@@ -184,7 +187,7 @@ def _get_labels(endpoint,api_key,dataset_dir,model_name):
     # upload files to server
     _upload_data_files(endpoint=send_files_endpoint,
                        dataset_dir=dataset_dir,
-                       api_key=api_key,
+                       user_id=user_id,
                        data_id = tmp_data_id)
     
     print("Data sent to server to TMP_SET_TO_LABEL dir")
@@ -195,10 +198,10 @@ def _get_labels(endpoint,api_key,dataset_dir,model_name):
     # making query string
     query_string = '?'
     # api key - mandatory
-    if api_key != None:
-        query_string += 'api_key=' + str(api_key)
+    if user_id != None:
+        query_string += 'user_id=' + str(user_id)
     else:
-        return {'error': 'api_key missing', 'comment': 'Provide api_key to run the app correctly.'}
+        return {'error': 'user_id missing', 'comment': 'Provide user_id to run the app correctly.'}
     
     # model name - mandatory
     if model_name != None:
@@ -232,19 +235,20 @@ def upload_dataset_to_server_api(body):
     
     #checking keys in body dict
     keys_list = body.keys()
+    #print("ngq::upload_dataset_to_server_api keys_list =", keys_list)
     
     #checking endpoint
-    default_endpoint = 'http://24.199.84.84:5000/upload_data'
+    default_endpoint = 'https://my-qml.org:8443/upload_data'
     if 'endpoint' in keys_list:
         endpoint = body['endpoint']
     else:
         endpoint = default_endpoint
-    
-    #checking api_key
-    if 'api_key' in keys_list:
-        api_key = body['api_key']
+
+    #checking user_id
+    if 'user_id' in keys_list:
+        user_id = body['user_id']
     else:
-        api_key = 'None'
+        user_id = 'None'
         
     #checking 'dataset_dir'
     if 'dataset_dir' in keys_list:
@@ -260,7 +264,7 @@ def upload_dataset_to_server_api(body):
     
     response = _upload_data_files(endpoint = endpoint,
                                   dataset_dir = dataset_dir,
-                                  api_key = api_key,
+                                  user_id = user_id,
                                   data_id = data_id)
     return response
     
@@ -278,11 +282,11 @@ def train_model_on_data_api(body):
     else:
         endpoint = default_endpoint
         
-    #checking api_key
-    if 'api_key' in keys_list:
-        api_key = body['api_key']
+    #checking user_id
+    if 'user_id' in keys_list:
+        user_id = body['user_id']
     else:
-        api_key = 'None'
+        user_id = 'None'
     
     #checking 'data_id'
     if 'data_id' in keys_list:
@@ -303,7 +307,7 @@ def train_model_on_data_api(body):
         num_classes = 'None'
     
     response = _train_model_on_data(endpoint = endpoint,
-                                    api_key = api_key,
+                                    user_id = user_id,
                                     data_id = data_id,
                                     model_name = model_name,
                                     num_classes = num_classes)
@@ -323,11 +327,11 @@ def get_labels_api(body):
     else:
         endpoint = default_endpoint
         
-    #checking api_key
-    if 'api_key' in keys_list:
-        api_key = body['api_key']
+    #checking user_id
+    if 'user_id' in keys_list:
+        user_id = body['user_id']
     else:
-        api_key = 'None'
+        user_id = 'None'
     
     #checking 'dataset_dir'
     if 'dataset_dir' in keys_list:
@@ -342,7 +346,7 @@ def get_labels_api(body):
         model_name = 'None'
         
     response = _get_labels(endpoint = endpoint,
-                           api_key = api_key,
+                           user_id = user_id,
                            dataset_dir = dataset_dir,
                            model_name = model_name)
     return response
