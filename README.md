@@ -13,7 +13,7 @@ Your image recongition ML API code is in client_app.py file.  With just a few li
 <li> returns labels for your files that you send to the server.</li>
 </ol>
 
-## **2. Quick start: how to run.** 
+## **2. Quick start.** 
 
 <ol>
 <li>  Download the directory with the files from github to your local computer. (For example, click a green button "<> Code" on this web page and pick "Download ZIP".)</li>
