@@ -14,8 +14,8 @@ import ngq
 
 # 1. Upload files to the server:
 body_upload = {
-    'dataset_dir':  'my_datasets/MNIST_1024_imgs/',   # path to your dataset
-    'data_id':      'MNIST_1024_imgs',                # give your dataset a name
+    'dataset_dir':  'my_datasets/MNIST_1024_images/',   # path to your dataset
+    'data_id':      'MNIST_1024_images',                # give your dataset a name
     'endpoint':     'https://my-qml.org/upload_data', # server
     'user_id':      'Test725'                         # test user id
 }
@@ -25,7 +25,7 @@ print("\n==> File uploading response:\n", response)
 
 # 2. Train model on data on the server:
 body_train = {
-    'data_id':      'MNIST_1024_imgs',  # name of your dataset
+    'data_id':      'MNIST_1024_images',  # name of your dataset
     'model_name':   'my_first_model',   # give your model a name
     'num_classes':  '10',               # how many classes in your data set
     'endpoint':     'https://my-qml.org/train_model_on_data',  # server
@@ -42,8 +42,9 @@ body_check = {
     'endpoint':     'https://my-qml.org/check_model_ready', # server
     'user_id':      'Test725'                   # test user id
 }
+print("\n==> Check if model is already trained:")
 response = ngq.check_model_ready_api( body_check )
-print("\n==> Check if model is already trained:\n", response)
+print(response)
 
 
 # 4. Get labels for the files you placed in the directory in 'dataset_dir'
