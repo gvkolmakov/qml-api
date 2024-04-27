@@ -2,7 +2,7 @@
 # The newest verion can be downloaded at https://github.com/gvkolmakov/qml-api
 # Please email G.Kolmakov with any questions at german@ngq.io
 
-import json, glob
+import json, glob, time
 
 try:
     import requests
@@ -340,7 +340,7 @@ def train_model_on_data_api(body):
     keys_list = body.keys()
     
     #checking endpoint
-    default_endpoint = 'http://24.199.84.84/train_model_on_data'
+    default_endpoint = 'https://24.199.84.84/train_model_on_data'
     if 'endpoint' in keys_list:
         endpoint = body['endpoint']
     else:
@@ -388,7 +388,7 @@ def get_labels_api(body):
     keys_list = body.keys()
     
     #checking endpoint
-    default_endpoint = 'http://24.199.84.84/get_labels'
+    default_endpoint = 'https://24.199.84.84/get_labels'
     if 'endpoint' in keys_list:
         endpoint = body['endpoint']
     else:
@@ -439,7 +439,7 @@ def get_labels_api(body):
                     endpoint=check_model_ready_endpoint,
                     user_id=user_id,
                     model_name=model_name)
-    if response["error"] == "Error":
+    if response["error"] != "None":
         OUT("Model is not ready", level=1)
         return response
     
@@ -457,7 +457,7 @@ def check_model_ready_api(body):
     keys_list = body.keys()
     
     #checking endpoint
-    default_endpoint = 'http://24.199.84.84/check_model_ready'
+    default_endpoint = 'https://24.199.84.84/check_model_ready'
     if 'endpoint' in keys_list:
         endpoint = body['endpoint']
     else:
@@ -475,7 +475,29 @@ def check_model_ready_api(body):
     else:
         model_name = 'None'
         
-    response = _check_model_ready(endpoint = endpoint,
+    #checking 'keep_trying'
+    MAX_TRIES = 20 #max number of tries
+    TIME_OUT  = 4.0  #in seconds
+    num_tries = 1
+    if 'keep_trying' in keys_list:
+        if body['keep_trying'] == 'True':
+            num_tries = MAX_TRIES
+    
+    #trying num_tries times
+    if num_tries == 1:
+        response = _check_model_ready(endpoint = endpoint,
                            user_id = user_id,
                            model_name = model_name)
+        return response
+    else:
+        for i in range(num_tries):
+            response = _check_model_ready(endpoint = endpoint,
+                               user_id = user_id,
+                               model_name = model_name)
+            if response["error"] == "Warning":
+                print("    ** Training in process. Will authomatically retry in", TIME_OUT, "seconds.")
+                time.sleep(TIME_OUT)
+            else:
+                return response
     return response
+        
