@@ -1,6 +1,6 @@
 # qml-api
 
-##**1. Introductory notes**
+## **1. Introductory notes**
    
 Thank you for your interest in machine learning (ML) API.
 
@@ -13,7 +13,7 @@ Your image recongition ML API code is in client_app.py file.  With just a few li
 <li> returns labels for your files that you send to the server.</li>
 </ol>
 
-##**2. Quick start: how to run** 
+## **2. Quick start: how to run** 
 
 <ol>
 <li>  Download the files from github to your local computer </li>
@@ -32,7 +32,7 @@ python3 client_app.py
 
 For the best result;) keep ngq.py file in the same directory where your code (f.e. client_app.py) is.
 
-##**3. Creating a labeled set with a complimentary online tool.**
+## **3. Creating a labeled set with a complimentary online tool.**
    
 If you need to label your files to create the training set for your application, use our complimentary free online labeling tool at: 
 
@@ -43,7 +43,7 @@ http://24.199.84.84:4000/
 Feel free to contact me and my team at: german@ngq.io with any question.
 If you need to tune the app and server functionality to your needs, email me to the address above and request your API key for personalized server settings.
 
-##**5. Tribute.**
+## **5. Tribute.**
    
 The development of this technology is supported by the National Science Foundation, Partnership For Innovation program, award NSF TIP #2141058, see the details at: https://www.nsf.gov/awardsearch/showAward?AWD_ID=2141058&HistoricalAwards=false 
 
