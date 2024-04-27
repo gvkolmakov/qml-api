@@ -16,7 +16,7 @@ Your image recongition ML API code is in client_app.py file.  With just a few li
 ## **2. Quick start: how to run.** 
 
 <ol>
-<li>  Download the files from github to your local computer. (Click a green button "<>Code" on this web page and pick "Download zip"</li>
+<li>  Download the files from github to your local computer. (For example, click a green button "<> Code" on this web page and pick "Download ZIP".)</li>
 
 <li> Go to the directory my_datasets/MNIST_1024_imgs and unzip the sample training data file MNIST_1024_images.zip </li>
 
