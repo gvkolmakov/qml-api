@@ -1,6 +1,6 @@
 # qml-api
 
-## **1. Introductory notes**
+## **1. Introductory notes.**
    
 Thank you for your interest in machine learning (ML) API.
 
@@ -13,7 +13,7 @@ Your image recongition ML API code is in client_app.py file.  With just a few li
 <li> returns labels for your files that you send to the server.</li>
 </ol>
 
-## **2. Quick start: how to run** 
+## **2. Quick start: how to run.** 
 
 <ol>
 <li>  Download the files from github to your local computer </li>
