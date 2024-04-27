@@ -52,7 +52,7 @@ print("\n==> Check if model is already trained:\n", response)
 body_get_labels = {
     'dataset_dir':  'my_datasets/just_one_img/', # path to files to get labeled
     'model_name':   'my_first_model',            # your trained model
-    'endpoint':     'http://my-qml.org/get_labels',  # server
+    'endpoint':     'https://my-qml.org/get_labels',  # server
     'user_id':      'Test725'                   # test user id
 }
 response = ngq.get_labels_api( body_get_labels )
