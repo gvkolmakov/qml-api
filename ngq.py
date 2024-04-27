@@ -2,6 +2,14 @@
 # The newest verion can be downloaded at https://github.com/gvkolmakov/qml-api
 # Please email G.Kolmakov with any questions at german@ngq.io
 
+#version
+VERSION = "0.2"
+DATE = "April 27, 2024"
+
+# printout levels
+DEBUG = False
+DEBUG_TALKATIVE_LEVEL = 1 # 1 = basic; 2 = detailed
+
 import json, glob, time
 
 try:
@@ -17,13 +25,6 @@ except ImportError as e:
     exit(0)
 
 print("#######################################################\n")
-#version
-VERSION = "0.2"
-DATE = "April 27, 2024"
-
-# printout levels
-DEBUG = False
-DEBUG_TALKATIVE_LEVEL = 1 # 1 = basic; 2 = detailed
 
 def OUT(*args, level=1):
     """Print debug messages. level=1 prints basic messages; level=2 prints detailed messages.
@@ -501,3 +502,4 @@ def check_model_ready_api(body):
                 return response
     return response
         
+    
