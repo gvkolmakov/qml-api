@@ -38,7 +38,7 @@ If you need to label your files to create the training set for your application,
 
 http://24.199.84.84:4000/
 
-##**4. Contact us.**
+## **4. Contact us.**
    
 Feel free to contact me and my team at: german@ngq.io with any question.
 If you need to tune the app and server functionality to your needs, email me to the address above and request your API key for personalized server settings.
