@@ -45,7 +45,7 @@ If you need to tune the app and server functionality to your needs, email me to 
 
 ## **5. Tribute.**
    
-The development of this technology is supported by the National Science Foundation, Partnership For Innovation program, award NSF TIP #2141058, City University of New York, see the details at: https://www.nsf.gov/awardsearch/showAward?AWD_ID=2141058&HistoricalAwards=false 
+The development of this technology is supported in part by the National Science Foundation, Partnership For Innovation program, award NSF TIP #2141058, City University of New York, see the details at: https://www.nsf.gov/awardsearch/showAward?AWD_ID=2141058&HistoricalAwards=false 
 
 Will be happy to get your feedback.
 
