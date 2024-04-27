@@ -2,8 +2,21 @@
 # The newest verion can be downloaded at https://github.com/gvkolmakov/qml-api
 # Please email G.Kolmakov with any questions at german@ngq.io
 
-import json, requests, glob
+import json, glob
 
+try:
+    import requests
+except ImportError as e:
+    print("\n", e)
+    print("\n#######################################################")
+    print("# This app needs \'requests\' as a dependency.          #")
+    print("# One-liner to install from a terminal is:            #")
+    print("#      python3 -m pip install requests                #")
+    print("# See for details: https://pypi.org/project/requests/ #")
+    print("#######################################################\n")
+    exit(0)
+
+print("#######################################################\n")
 #version
 VERSION = "0.2"
 DATE = "April 27, 2024"
