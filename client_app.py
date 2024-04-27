@@ -1,4 +1,4 @@
-import sys, time; sys.path.append('./')
+import sys; sys.path.append('./')
 import ngq
 
 #######################################################
@@ -35,11 +35,10 @@ response = ngq.train_model_on_data_api( body_train )
 print("\n==> Training response:\n", response)
 
 
-# 3. Give the system 5 seconds to complete the model training, and then
-#    check if the training is done and the model is ready to use.
-time.sleep(5.0)
+# 3. Check if the training is complete and the model is ready to use.
 body_check = {
     'model_name':   'my_first_model',           # name of your model
+    'keep_trying':  'True',                     # If True, the code retries 20 times
     'endpoint':     'https://my-qml.org/check_model_ready', # server
     'user_id':      'Test725'                   # test user id
 }
