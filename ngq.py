@@ -4,7 +4,7 @@
 
 #version
 VERSION = "20240813"
-MINOR_VERSION = "D002" #updated Aug 28 2024
+MINOR_VERSION = "R002" #updated Aug 28 2024
 
 ##########################################################
 # Set talkativeness level: True or False
