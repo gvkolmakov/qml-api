@@ -40,7 +40,8 @@ body_check = {
     'model_name':   'my_first_model',           # name of your model
     'keep_trying':  'True',                     # If True, the code retries 20 times
     'endpoint':     'https://my-qml.org/check_model_ready', # server
-    'user_id':      'Test725'                   # test user id
+    'user_id':      'Test725',                  # test user id
+    'persistent':   'True'                      # If True the code keeps checking 20 times
 }
 print("\n==> Check if model is already trained:")
 response = ngq.check_model_ready_api( body_check )
