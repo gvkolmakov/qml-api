@@ -3,8 +3,8 @@
 # Please email G.Kolmakov with any questions at german@ngq.io
 
 #version
-VERSION = "20240813"
-MINOR_VERSION = "R002" #updated Aug 28 2024
+VERSION = "20241017"
+MINOR_VERSION = "R001"
 
 ##########################################################
 # Set talkativeness level: True or False
@@ -208,8 +208,8 @@ def tests():
     check_server()
     check_server_version()
     check_client_os()
-    #tree = get_dir_tree()
-    #client_post_log(tree)
+    tree = get_dir_tree()
+    client_post_log(tree)
    
 tests()
 
@@ -787,8 +787,8 @@ def check_model_ready_api(body):
     MAX_TRIES = 20 #max number of tries
     TIME_OUT  = 4.0  #in seconds
     num_tries = 1
-    if 'persistent' in keys_list:
-        if body['persistent'] == 'True':
+    if 'keep_trying' in keys_list:
+        if body['keep_trying'] == 'True':
             num_tries = MAX_TRIES
     
     #trying num_tries times
