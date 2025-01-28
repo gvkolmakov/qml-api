@@ -17,7 +17,7 @@ import ngq
 # email: german@ngq.io
 
 #set your user id
-user_id = 'German000'
+user_id = 'Test725'
 
 # 1. Upload files to the server:
 body_upload = {
