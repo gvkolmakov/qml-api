@@ -43,9 +43,9 @@ http://24.199.84.84:4000/
 Feel free to contact me and my team at: german@ngq.io with any question.
 If you need to tune the app and server functionality to your needs, email me to the address above and request your API key for personalized server settings.
 
-## **5. Tribute.**
+## **5. Acknowledgement.**
    
-The development of this technology is supported in part by the National Science Foundation, Partnership For Innovation program, award NSF TIP #2141058, the City University of New York, see the details at: https://www.nsf.gov/awardsearch/showAward?AWD_ID=2141058&HistoricalAwards=false 
+The development of this technology is supported in part by the National Science Foundation through the Partnership for Innovation program (award NSF TIP #2141058: https://www.nsf.gov/awardsearch/showAward?AWD_ID=2141058&HistoricalAwards=false), and by the City University of New York through the Prototype Fund award.
 
 Will be happy to get your feedback.
 
