@@ -3,7 +3,7 @@
 # Please email G.Kolmakov with any questions at german@ngq.io
 
 #version
-VERSION = "20241017"
+VERSION = "202506130"
 MINOR_VERSION = "R001"
 
 ##########################################################
