@@ -3,7 +3,7 @@
 # Please email G.Kolmakov with any questions at german@ngq.io
 
 import sys, time; sys.path.append('./')
-import ngq
+import ngq    
 
 #######################################################
 # Also needs "requests" as a dependency.              #
